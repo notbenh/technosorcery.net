@@ -1,0 +1,5 @@
+# Editor artifacts.
+.*.sw[op]
+
+# Build results.
+/static/

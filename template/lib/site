@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" >
+    <head>
+        <title>
+            [%~ IF page_title ~%]
+                [% page_title %] - [% constants.site_title ~%]
+            [% ELSE ~%]
+                [% constants.site_title %]: [% constants.site_tagline ~%]
+            [% END ~%]
+        </title>
+        [%~ IF extra_head_sections %]
+            [%~ FOREACH section IN extra_head_sections -%]
+        <[% section.name %]>[% section.contents %]</[% section.name %]>
+            [%~ END %]
+        [%~ END -%]
+    </head>
+    <body>
+        [% WRAPPER layout ~%]
+            [% content ~%]
+        [% END %]
+        <script type="text/javascript">
+        //<![CDATA[
+        (function() {
+            var links = document.getElementsByTagName('a');
+            var query = '?';
+            for(var i = 0; i < links.length; i++) {
+                if(links[i].href.indexOf('#disqus_thread') >= 0) {
+                    query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+                }
+            }
+            document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/technosorcerynetworks/get_num_replies.js' + query + '"></' + 'script>');
+        })();
+        //]]>
+        </script>
+        <script type="text/javascript">
+        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        <script type="text/javascript">
+        try {
+        var pageTracker = _gat._getTracker("UA-4353938-2");
+        pageTracker._trackPageview();
+        } catch(err) {}</script>
+    </body>
+</html>
