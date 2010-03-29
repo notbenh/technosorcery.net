@@ -1,0 +1,14 @@
+---
+title: Technosorcery Networks
+tagline: Ramblings of Jacob Helwig
+authors_dir: authors
+posts_dir: articles
+output_dir: build
+template_class: '::Template::Toolkit'
+template_options:
+    INCLUDE_PATH:
+        - template/src
+        - template/lib
+    WRAPPER: site
+post_template: post.tt2
+author_template: author.tt2

@@ -9,11 +9,14 @@
                 [% constants.site_title %]: [% constants.site_tagline ~%]
             [% END ~%]
         </title>
+        <script type="text/javascript">
+            var disqus_developer = 1;
+        </script>
         [%~ IF extra_head_sections %]
-            [%~ FOREACH section IN extra_head_sections -%]
-        <[% section.name %]>[% section.contents %]</[% section.name %]>
+            [%~ FOREACH section IN extra_head_sections %]
+        <[% section.name %][% IF section.attr %] [% section.attr %][% END %]>[% section.contents %]</[% section.name %]>
             [%~ END %]
-        [%~ END -%]
+        [%~ END %]
     </head>
     <body>
         [% WRAPPER layout ~%]
