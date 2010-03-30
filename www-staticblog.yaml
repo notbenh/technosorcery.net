@@ -3,6 +3,7 @@ title: Technosorcery Networks
 tagline: Ramblings of Jacob Helwig
 authors_dir: authors
 posts_dir: articles
+static_dir: static
 output_dir: build
 template_class: '::Template::Toolkit'
 template_options:

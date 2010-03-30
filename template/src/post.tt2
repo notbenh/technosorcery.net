@@ -11,8 +11,16 @@
     <div class="body">
         [% post.body %]
     </div>
-[%~ IF !disable_comments %]
+    <div class="footer">
+    [% IF post.tags %]
+        <h4 class="meta">Tagged with:</h4>
+        [% FOREACH tag IN post.tags %]
+        <p><a href="/tags/[% tag %]" title="[% tag %]">[% tag %]</a></p>
+        [% END %]
+    [% END %]
     <div id="comments">
+        <a href="[% post.url %]#disqus_comments">permalink</a>
+[%~ IF !disable_comments %]
         <div id="disqus_thread"></div>
         <script type="text/javascript">
           (function() {
@@ -23,6 +31,6 @@
         </script>
         <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=technosorcerynetworks">comments powered by Disqus.</a></noscript>
         <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-    </div>
 [%~ END %]
+    </div>
 </div>
