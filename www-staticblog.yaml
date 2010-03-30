@@ -10,5 +10,6 @@ template_options:
         - template/src
         - template/lib
     WRAPPER: site
+index_template: index.tt2
 post_template: post.tt2
 author_template: author.tt2

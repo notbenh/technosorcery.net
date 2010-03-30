@@ -1,0 +1,5 @@
+[% FOR post IN posts -%]
+    [%- INCLUDE
+        'post.tt2'
+    %]
+[% END -%]
