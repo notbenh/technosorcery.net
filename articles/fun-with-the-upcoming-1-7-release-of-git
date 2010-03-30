@@ -1,6 +1,11 @@
-Title: Fun with the upcoming 1.7 release of Git: rebase --interactive --autosquash
-Post-Date: 2010-02-07 17:50:00
+Title: Fun with the upcoming 1.7 release of Git: rebase --interactive
+ --autosquash
+Post-Date: 2010-02-07T17:50:00
 Author: jhelwig
+Slug:
+ fun_with_the_upcoming_1.7_release_of_git_rebase_--interactive_--autosquash
+Tags: 
+Updated-On: 2010-02-07T17:50:00
 
 {{{ Textile }}}
 The upcoming Git 1.7 has a _lot_ of really nice improvements, and new
