@@ -3,9 +3,9 @@
         <a href="[% post.url %]" title="[% post.title %]">[% post.title %]</a>
     </h2>
     <p class="meta">
-        Written by [% post.author %] on [% post.posted_on %]
-        [%~ IF post.updated_on =%]
-            (Last updated: [% post.updated_on %])
+        Written by [% post.author %] on [% post.posted_on.strftime('%F @ %H:%M %Z') %]
+        [%~ IF post.updated_on != post.posted_on =%]
+            (Last updated: [% post.updated_on.strftime('%F @ %H:%M %Z') %])
         [%~ END %]
     </p>
     <div class="body">
