@@ -31,6 +31,7 @@ You'll then need to create <code>local/lib/RT/Action/AutoResolve.pm</code>
 ((I'd love to give credit on where I found the code that this is based on, but
 I can't seem to find it on the RT Wiki anymore.  If you can find the original,
 let me know so I can give proper credit for this.)) with the following content:
+{{{ Code lang=Perl }}}
 package RT::Action::AutoResolve;
 require RT::Action::Generic;
 
