@@ -13,7 +13,11 @@
         </div>
 
         <div id="sidebar">
-            <div class="boxy till minor">
+            <div class="boxy short">
+                <h3>About</h3>
+                <p>I'm just a Perl hacker, occaisionally dabbling in some Ruby &amp; Rails.</p>
+            </div>
+            <div class="boxy tall minor">
                 <h3>Recent</h3>
                 <dl>
                     <dt>Articles <a class="feed" href="/feed/atom.xml"><span>feed</span></a></dt>
@@ -44,11 +48,8 @@
             </div>
         </div>
     </div>
-</div>
-
-<div id="footer">
-<p>Copyright &copy; 2009-2010, Jacob Helwig. Valid <a href="http://validator.w3.org/check/referer">XHTML</a> and <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>.</p>
-<p>Using <a href="http://evil.che.lu/projects/skittlish">skittlish</a> on <a href="http://github.com/jhelwig/WWW-StaticBlog">WWW::StaticBlog</a>.</p>
-</div>
-
+    <div id="footer">
+        <p>Copyright &copy; 2009-2010, Jacob Helwig. Valid <a href="http://validator.w3.org/check/referer">XHTML</a> and <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>.</p>
+        <p>Using <a href="http://evil.che.lu/projects/skittlish">skittlish</a> on <a href="http://github.com/jhelwig/WWW-StaticBlog">WWW::StaticBlog</a>.</p>
+    </div>
 </div>
