@@ -23,9 +23,9 @@
                     <dt>Articles <a class="feed" href="/feed/atom.xml"><span>feed</span></a></dt>
                     <dd>
                         <ul>
-                            [% FOREACH recent IN constants.recent_posts -%]
-                            <li><a href="[% recent.url %]" alt="[% recent.title %]">[% recent.title %]</a> <em>([% recent.posted_on.strftime('%B $e') %])</em></li>
-                            [% END -%]
+                            [%- FOREACH recent IN constants.recent_posts %]
+                            <li><a href="[% recent.url %]" alt="[% recent.title %]">[% recent.title %]</a> <em>([% recent.posted_on.strftime('%B %e %Y') %])</em></li>
+                            [%- END %]
                         </ul>
                     </dd>
                 </dl>
@@ -33,17 +33,17 @@
             <div class="boxy short">
                 <h3>Archives</h3>
                 <ul>
-                    [% FOREACH archive IN constants.archives -%]
+                    [%- FOREACH archive IN constants.archives %]
                     <li><a href="[% archive.url %]" title="[% archive.title %]">[% archive.title %]</a> ([% archive.count %])</li>
-                    [% END -%]
+                    [%- END %]
                 </ul>
             </div>
             <div class="boxy short">
                 <h3>Tags</h3>
                 <ul>
-                    [% FOREACH tag IN constants.tags -%]
-                    <li><a href="[% tag.url %]" rel="tag" title="[% tag.name %]">[% tag.name %]</a></li>
-                    [% END -%]
+                    [%- FOREACH tag IN constants.tags %]
+                    <li><a href="[% tag.url %]" rel="tag" title="[% tag.name %]">[% tag.name %] ([% tag.count %])</a></li>
+                    [%- END %]
                 </ul>
             </div>
         </div>

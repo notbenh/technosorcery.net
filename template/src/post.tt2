@@ -12,12 +12,12 @@
         [% post.body %]
     </div>
     <div class="footer">
-    [% IF post.tags %]
+    [%- IF post.tags %]
         <h4 class="meta">Tagged with:</h4>
         <p>[% FOREACH tag IN post.tags %]
         <a href="/tags/[% tag %]" title="[% tag %]">[% tag %]</a>
         [% END %]</p>
-    [% END %]
+    [%- END %]
     </div>
     <div class="comments">
         <a href="[% post.url %]#disqus_thread">Permalink</a>
