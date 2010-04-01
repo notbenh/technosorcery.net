@@ -3,4 +3,4 @@
         'post.tt2'
         disable_comments = 1
     %]
-[% END -%]
+[%- END %]

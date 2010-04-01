@@ -1,0 +1,10 @@
+[% FOREACH tag IN tags %]
+    [%- tag %]<a href="[% minus.$tag %]" alt="Without [% tag %]">[-]</a>
+[%- END %]
+
+[% FOR post IN posts -%]
+    [%- INCLUDE
+        'post.tt2'
+        disable_comments = 1
+    %]
+[%- END %]
