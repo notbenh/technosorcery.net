@@ -14,3 +14,5 @@ template_options:
 index_template: index.tt2
 post_template: post.tt2
 author_template: author.tt2
+post_feed: feed/atom.xml
+url: http://technosorcery.net/
