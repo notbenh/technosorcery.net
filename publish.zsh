@@ -16,5 +16,5 @@ find build -type f -exec chmod a+r  {} \;
 if (( ${+opts[--publish]} )); then
     dry_run=''
     if (( ${+opts[--dry-run]} )); then dry_run='--dry-run'; fi
-    rsync $dry_run -vrlptSPhi --copy-unsafe-links --delete-after --delay-updates --stats build/. technosorcery.net:technosorcery.net/
+    rsync $dry_run -vrlptSPhi --copy-unsafe-links --delete-after --delay-updates --exclude="*.tbz" --stats build/. technosorcery.net:technosorcery.net/
 fi
