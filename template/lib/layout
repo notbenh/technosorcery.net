@@ -38,7 +38,7 @@
                     [%- END %]
                 </ul>
             </div>
-            <div class="boxy short">
+            <div class="boxy tall">
                 <h3>Tags</h3>
                 <ul>
                     [%- FOREACH tag IN constants.tags %]
