@@ -15,7 +15,7 @@
     [%- IF post.tags %]
         <h4 class="meta">Tagged with:</h4>
         <p>[% FOREACH tag IN post.tags %]
-        <a href="/tags/[% tag %].html" title="[% tag %]">[% tag %]</a>
+        <a href="/tags/[% tag %]" title="[% tag %]">[% tag %]</a>
         [% END %]</p>
     [%- END %]
     </div>

@@ -1,10 +1,23 @@
-[% FOREACH tag IN tags %]
-    [%- tag %]<a href="[% minus.$tag %]" alt="Without [% tag %]">[-]</a>
-[%- END %]
+<div class="tag-listings">
+    <div class="current">
+        Current tags:
+        [%- FOREACH tag IN tags %]
+            [% tag %][% IF tags.size > 1 %]<a href="[% minus.$tag %]" alt="Without [% tag %]">[-]</a>[% END %]
+        [%- END %]
+    </div>
+    [%- IF plus.size %]
+    <div class="additional">
+        Additional tags:
+        [%- FOREACH tag IN plus %]
+            <a href="[% tag.link %]" alt="Add [% tag.name %] to search">[% tag.name %]</a> ([% tag.count %])
+        [%- END %]
+    </div>
+    [%- END %]
 
-[% FOR post IN posts -%]
-    [%- INCLUDE
-        'post.tt2'
-        disable_comments = 1
-    %]
-[%- END %]
+    [% FOR post IN posts -%]
+        [%- INCLUDE
+            'post.tt2'
+            disable_comments = 1
+        %]
+    [%- END %]
+</div>
