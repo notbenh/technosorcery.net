@@ -4,6 +4,9 @@
         [%- FOREACH tag IN tags %]
             [% tag %][% IF tags.size > 1 %]<a href="[% minus.$tag %]" title="Without [% tag %]">[-]</a>[% END %]
         [%- END %]
+        <span class="post-count">
+            ([% posts.size %] post[% IF posts.size != 1 %]s[% END %])
+        </span>
     </div>
     [%- IF plus.size %]
     <div class="additional">
@@ -13,11 +16,11 @@
         [%- END %]
     </div>
     [%- END %]
-
-    [% FOR post IN posts -%]
-        [%- INCLUDE
-            'post.tt2'
-            disable_comments = 1
-        %]
-    [%- END %]
 </div>
+
+[% FOR post IN posts -%]
+    [%- INCLUDE
+        'post.tt2'
+        disable_comments = 1
+    %]
+[%- END %]
