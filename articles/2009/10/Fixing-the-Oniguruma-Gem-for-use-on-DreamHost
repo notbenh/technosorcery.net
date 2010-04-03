@@ -3,37 +3,16 @@ Author: jhelwig
 Post-Date: 2009-10-04T10:33:00
 Tags: dreamhost gems oniguruma ruby
 Slug: fixing_the_oniguruma_gem_for_use_on_dreamhost
-Updated-On: 2009-10-04T10:33:00
+Updated-On: 2010-04-02T21:00:36
 
 {{{ Textile }}}
-While looking at how to get syntax highlighted source back up on here
-after switching to Mephisto, I kept running across references to the
-Ultraviolet gem.  Some of the dependencies are a little old,(Oniguruma
-"Gem(RubyForge Project)":http://oniguruma.rubyforge.org/,
-"Library":http://www.geocities.jp/kosako3/oniguruma/), but the output
-looks very nice, from the examples I'd seen.
+While looking at how to get syntax highlighted source back up on here after switching to Mephisto, I kept running across references to the Ultraviolet gem.  Some of the dependencies are a little old (Oniguruma: "Gem(RubyForge Project)":http://oniguruma.rubyforge.org/, "Library":http://www.geocities.jp/kosako3/oniguruma/), but the output looks very nice, from the examples I'd seen.
 
-The problem comes in, that the Oniguruma gem won't install without you
-already having the Oniguruma library installed (in a standard system
-location).  This is a pretty well documented problem, with a "simple
-fix(extconf.rb
-patch)":http://rubyforge.org/tracker/index.php?func=detail&aid=16169&group_id=3289&atid=12696.
+The problem comes in, that the Oniguruma gem won't install without you already having the Oniguruma library installed (in a standard system location).  This is a pretty well documented problem, with a "simple fix(extconf.rb patch)":http://rubyforge.org/tracker/index.php?func=detail&aid=16169&group_id=3289&atid=12696.
 
-Unfortunately, I wasn't even able to get the gem to build at all with
-the original @Rakefile@ that comes with it, and gave up very quickly on
-trying to fix it.  Fortunately, there is a wonderful gem out there
-called "Jeweler(Jeweler GitHub
-project)":http://github.com/technicalpickles/jeweler.  This allowed me
-to trivially setup a working build environment, drop in the original gem
-code, and get something up and running.
+Unfortunately, I wasn't even able to get the gem to build at all with the original @Rakefile@ that comes with it, and gave up very quickly on trying to fix it.  Fortunately, there is a wonderful gem out there called "Jeweler(Jeweler GitHub project)":http://github.com/technicalpickles/jeweler.  This allowed me to trivially setup a working build environment, drop in the original gem code, and get something up and running.
 
-After adding @dir_config@ to the extconf.rb, you can happily install the
-Oniguruma gem (provided your @LD_LIBRARY_PATH@ includes wherever you
-installed the library).  This gets to be a problem, when using Passenger
-on a shared host (such as DreamHost), like I'm trying to do.
-Fortunately, there's a way to fix this (at least on Linux).  When
-linking in the libraries, you can tell @ld@ to include path information
-on where to look for them.  This is very handy.
+After adding @dir_config@ to the extconf.rb, you can happily install the Oniguruma gem (provided your @LD_LIBRARY_PATH@ includes wherever you installed the library).  This gets to be a problem, when using Passenger on a shared host (such as DreamHost), like I'm trying to do.  Fortunately, there's a way to fix this (at least on Linux).  When linking in the libraries, you can tell @ld@ to include path information on where to look for them.  This is very handy.
 
 Here's the @extconf.rb@ that I ended up going with:
 
@@ -53,15 +32,11 @@ $CFLAGS='-Wall'
 create_makefile( "oregexp" )
 {{{ }}}
 
-With this, I was able to build the gem, install it locally, and still
-have it work with passenger.  I can't guarantee it's the best way to do
-it, but it works.
+With this, I was able to build the gem, install it locally, and still have it work with passenger.  I can't guarantee it's the best way to do it, but it works.
 
-I've put the modified Oniguruma gem on "GitHub(modified Oniguruma
-gem)":http://github.com/jhelwig/oniguruma/
+I've put the modified Oniguruma gem on "GitHub(modified Oniguruma gem)":http://github.com/jhelwig/oniguruma/
 
-Until GitHub gets the gem building back up and running, you'll have to
-download, and make the @.gem@ file yourself, unfortunately.
+Until GitHub gets the gem building back up and running, you'll have to download, and make the @.gem@ file yourself, unfortunately.
 
 {{{ Code lang=Bash }}}
 git clone git://github.com/jhelwig/oniguruma

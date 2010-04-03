@@ -8,23 +8,11 @@ Tags: development git tips
 Updated-On: 2010-02-07T17:50:00
 
 {{{ Textile }}}
-The upcoming Git 1.7 has a _lot_ of really nice improvements, and new
-features.  One of the big new features is the @--autosquash@ argument
-for @git rebase --interactive@.
+The upcoming Git 1.7 has a _lot_ of really nice improvements, and new features.  One of the big new features is the @--autosquash@ argument for @git rebase --interactive@.
 
-If you're anything like me, then you commit a _lot_, while you're
-working on something, and use @git rebase --interactive@ judiciously to
-clean up all these incremental commits into a presentable format.  If
-you're a bit more like me, then you'll often end up doing multiple
-@git rebase --interactive@ passes to split commits apart, and squash them
-back into other commits.
+If you're anything like me, then you commit a _lot_, while you're working on something, and use @git rebase --interactive@ judiciously to clean up all these incremental commits into a presentable format.  If you're a bit more like me, then you'll often end up doing multiple @git rebase --interactive@ passes to split commits apart, and squash them back into other commits.
 
-Git just gained the ability to make this a little faster.  If you know
-what commit you want to squash something in to you can commit it with a
-message of "squash! $other_commit_subject".  Then if you run
-@git rebase --interactive --autosquash commitish@, the line will automatically
-be set as @squash@, and placed below the commit with the subject of
-@$other_commit_subject@.
+Git just gained the ability to make this a little faster.  If you know what commit you want to squash something in to you can commit it with a message of "squash! $other_commit_subject".  Then if you run @git rebase --interactive --autosquash commitish@, the line will automatically be set as @squash@, and placed below the commit with the subject of @$other_commit_subject@.
 
 For example:
 
@@ -43,8 +31,7 @@ $ git commit -am "squash! Change all the 'Bar's"
  1 files changed, 2 insertions(+), 1 deletions(-)
 {{{ }}}
 
-If we run @git rebase --interactive --autosquash origin/master@ from
-here, the pick-list will look like this:
+If we run @git rebase --interactive --autosquash origin/master@ from here, the pick-list will look like this:
 
 {{{ Code lang=Bash }}}
 pick 8374d8e Change all the 'Bar's to 'Foo's
@@ -85,10 +72,7 @@ squash! Change all the 'Bar's
 #
 {{{ }}}
 
-If you were paying attention earlier to the pick-list, you'll notice that
-there's also a @fixup@ command available.  If we had specified @fixup!@,
-instead of @squash!@ as the commit message's prefix, then the pick list would
-have ended up as:
+If you were paying attention earlier to the pick-list, you'll notice that there's also a @fixup@ command available.  If we had specified @fixup!@, instead of @squash!@ as the commit message's prefix, then the pick list would have ended up as:
 
 {{{ Code lang=Bash }}}
 pick 8374d8e Change all the 'Bar's to 'Foo's

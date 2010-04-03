@@ -6,19 +6,9 @@ Tags: capistrano completion zsh
 Updated-On: 2009-10-06T23:03:00
 
 {{{ Textile }}}
-I've decided to try out zsh for a while, and while I already get completions
-for most everything I want, out of the box, I am missing completions for
-Capistrano tasks.
+I've decided to try out zsh for a while, and while I already get completions for most everything I want, out of the box, I am missing completions for Capistrano tasks.
 
-I had been using "brynary's Bash Capistrano completion
-script":http://www.brynary.com/2007/5/3/tab-completion-for-capistrano-tasks-in-bash.
-I was able to find "a mailing list
-post":http://www.mail-archive.com/capistrano@googlegroups.com/msg00994.html
-about setting up Capistrano task completions for zsh, but it didn't quite work
-for me. (@show_tasks@ isn't a valid task.)  I also didn't like throwing the
-@.cap_tasks@ file in the top-level of the project.  I already had a
-@~/.zsh_cache/@ directory for caching zsh's completions, so I decided to modify
-the script I found to put the cache file there, instead.
+I had been using "brynary's Bash Capistrano completion script":http://www.brynary.com/2007/5/3/tab-completion-for-capistrano-tasks-in-bash.  I was able to find "a mailing list post":http://www.mail-archive.com/capistrano@googlegroups.com/msg00994.html about setting up Capistrano task completions for zsh, but it didn't quite work for me. (@show_tasks@ isn't a valid task.)  I also didn't like throwing the @.cap_tasks@ file in the top-level of the project.  I already had a @~/.zsh_cache/@ directory for caching zsh's completions, so I decided to modify the script I found to put the cache file there, instead.
 
 {{{ Code lang=Bash }}}
 _cap_does_task_list_need_generating () {
