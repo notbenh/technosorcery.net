@@ -2,14 +2,14 @@
     <div class="current">
         Current tags:
         [%- FOREACH tag IN tags %]
-            [% tag %][% IF tags.size > 1 %]<a href="[% minus.$tag %]" alt="Without [% tag %]">[-]</a>[% END %]
+            [% tag %][% IF tags.size > 1 %]<a href="[% minus.$tag %]" title="Without [% tag %]">[-]</a>[% END %]
         [%- END %]
     </div>
     [%- IF plus.size %]
     <div class="additional">
         Additional tags:
         [%- FOREACH tag IN plus %]
-            <a href="[% tag.link %]" alt="Add [% tag.name %] to search">[% tag.name %]</a> ([% tag.count %])
+            <a href="[% tag.link %]" title="Add [% tag.name %] to search">[% tag.name %]</a> ([% tag.count %])
         [%- END %]
     </div>
     [%- END %]

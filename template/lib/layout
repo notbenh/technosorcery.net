@@ -1,7 +1,7 @@
 <div id="wrapper">
     <div id="header" class="clearfix">
         <div id="title" class="clearfix">
-            <h1><a href="/" alt="Home">[% constants.site_title %]</a></h1>
+            <h1><a href="/" title="Home">[% constants.site_title %]</a></h1>
         </div>
     </div>
 
@@ -24,12 +24,13 @@
                     <dd>
                         <ul>
                             [%- FOREACH recent IN constants.recent_posts %]
-                            <li><a href="[% recent.url %]" alt="[% recent.title %]">[% recent.title %]</a> <em>([% recent.posted_on.strftime('%B %e %Y') %])</em></li>
+                            <li><a href="[% recent.url %]" title="[% recent.title %]">[% recent.title %]</a> <em>([% recent.posted_on.strftime('%B %e %Y') %])</em></li>
                             [%- END %]
                         </ul>
                     </dd>
                 </dl>
             </div>
+            [%- IF constants.archives.size %]
             <div class="boxy short">
                 <h3>Archives</h3>
                 <ul>
@@ -38,6 +39,7 @@
                     [%- END %]
                 </ul>
             </div>
+            [%- END %]
             <div class="boxy tall">
                 <h3>Tags</h3>
                 <ul>
