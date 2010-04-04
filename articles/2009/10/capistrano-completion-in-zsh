@@ -3,7 +3,7 @@ Author: jhelwig
 Post-Date: 2009-10-06T23:03:00
 Slug: capistrano_completion_in_zsh
 Tags: capistrano completion zsh
-Updated-On: 2009-10-06T23:03:00
+Updated-On: 2010-04-04T09:50:00
 
 {{{ Textile }}}
 I've decided to try out zsh for a while, and while I already get completions for most everything I want, out of the box, I am missing completions for Capistrano tasks.
@@ -30,6 +30,7 @@ _cap () {
 }
 
 compdef _cap cap
+{{{ }}}
 
 I have the above in @~/.zsh.d/S50_capistrano@, which automatically gets loaded on startup.
 
