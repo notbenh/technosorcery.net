@@ -44,7 +44,7 @@
                 <h3>Tags</h3>
                 <ul>
                     [%- FOREACH tag IN constants.tags %]
-                    <li><a href="[% tag.url %]" rel="tag" title="[% tag.name %]">[% tag.name %] ([% tag.count %])</a></li>
+                    <li><a href="[% tag.url %]" rel="tag" title="[% tag.name %]">[% tag.name %] ([% tag.post_count %])</a></li>
                     [%- END %]
                 </ul>
             </div>
