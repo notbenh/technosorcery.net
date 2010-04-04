@@ -12,7 +12,7 @@ and <a href="http://lighthouseapp.com" alt="">Lighthouse</a> on a project of
 mine that's recently been resurrected.
 
 There is a pretty good update hook for CIA.vc integration called <a
-href="http://git.kernel.org/?p=cogito/cogito.git;a=blob;hb=HEAD;f=contrib/ciabot.pl"
+href="http://git.kernel.org/?p=cogito%2Fcogito.git;a=blob;hb=HEAD;f=contrib%2Fciabot.pl"
 alt="ciabot.pl from Cogito">ciabot.pl</a> that I've been using, without any
 complaints.  Unfortunately, I haven't been able to find anything to integrate
 Git with Lighthouse that hasn't needed modification out of the box.  I tried
