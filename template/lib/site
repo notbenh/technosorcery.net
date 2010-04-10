@@ -9,7 +9,7 @@
                 [% constants.site_title %]: [% constants.site_tagline ~%]
             [% END ~%]
         </title>
-        <link rel="alternate" type="application/atom+xml" href="/feed/atom.xml" title="Technosorcery Networks (Atom)" />
+        <link rel="alternate" type="application/rss+xml" href="http://feeds.feedburner.com/TechnosorceryNetworks" title="Article feed" />
         <link href="/stylesheets/base.css" rel="stylesheet" type="text/css" />
         [% IF constants.debug ~%]
         <script type="text/javascript">

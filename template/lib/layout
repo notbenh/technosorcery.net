@@ -20,7 +20,7 @@
             <div class="boxy tall minor">
                 <h3>Recent</h3>
                 <dl>
-                    <dt>Articles <a class="feed" href="/feed/atom.xml"><span>feed</span></a></dt>
+                    <dt>Articles <a class="feed" href="http://feeds.feedburner.com/TechnosorceryNetworks" rel="alternate" type="application/rss+xml"><span>feed</span></a></dt>
                     <dd>
                         <ul>
                             [%- FOREACH recent IN constants.recent_posts %]
