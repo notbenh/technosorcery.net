@@ -2,7 +2,8 @@
     <div class="current">
         Current tags:
         [%- FOREACH tag IN tags %]
-            [% tag.name %][% IF tags.size > 1 %]<a href="[% minus.$tag %]" title="Without [% tag.name %]">[-]</a>[% END %]
+            [%- minus_name = tag.name %]
+            [% tag.name %][% IF tags.size > 1 %]<a href="[% minus.$minus_name %]" title="Without [% tag.name %]">[-]</a>[% END %]
         [%- END %]
         <span class="post-count">
             ([% posts.size %] post[% IF posts.size != 1 %]s[% END %])
