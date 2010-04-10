@@ -12,7 +12,7 @@
         [% post.body %]
     </div>
     <div class="footer">
-    [%- IF post.tags %]
+    [%- IF post.tags.size %]
         <h4 class="meta">Tagged with:</h4>
         <p>[% FOREACH tag IN post.tags %]
         <a href="[% tag.url %]" title="[% tag.name %]">[% tag.name %]</a>
