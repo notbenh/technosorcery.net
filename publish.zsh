@@ -22,6 +22,7 @@ if (( ${+opts[--publish]} )); then
         --delete-after \
         --delay-updates \
         --exclude="*.tbz" \
+        --exclude="*.pdf" \
         --stats \
         build/. \
         technosorcery.net:technosorcery.net/
