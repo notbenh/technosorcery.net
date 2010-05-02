@@ -17,6 +17,15 @@
                 <h3>About</h3>
                 <p>I'm just a Perl hacker, occaisionally dabbling in some Ruby &amp; Rails.</p>
             </div>
+            <div class="boxy short">
+                <h3>My Stuff</h3>
+                <p>
+                    <a href="http://twitter.com/jhelwig" title="My Twitter account">Twitter account</a><br />
+                    <a href="http://github.com/jhelwig" title="My GitHub account">GitHub account</a><br />
+                    <a href="http://search.cpan.org/~jhelwig/" title="My CPAN modules">CPAN modules</a><br />
+                    <a href="http://www.linkedin.com/in/jhelwig" title="My LinkedIn profile">LinkedIn profile</a>
+                </p>
+            </div>
             <div class="boxy tall minor">
                 <h3>Recent</h3>
                 <dl>

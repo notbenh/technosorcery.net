@@ -34,4 +34,5 @@ linkchecker --priority \
     --ignore-url='http://[^/]*.w3.org/.*/?check/referer' \
     --ignore-url='http://git.kernel.org/\?p=.*' \
     --ignore-url='http://mephistoblog.com/' \
+    --ignore-url='http://twitter.com/jhelwig' \
     $linkchecker_url
