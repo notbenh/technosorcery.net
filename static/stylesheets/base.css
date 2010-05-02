@@ -508,17 +508,6 @@ body.violet #options li.violet,
 #options li.red    a { background-color: #c90808; }
 #options li.violet a { background-color: #ae3bd4; }
 
-
-/* chelu customizations */
-body.che #header h1 a {
-  padding-left: 53px;
-  background: url(/images/logo.gif) left bottom no-repeat;
-  line-height: .8;
-}
-body.che #header h1 a:hover {
-  background-position: -2000px 100%;
-}
-
 /* skittlish customizations */
 /* defaults: fixed orange */
 
