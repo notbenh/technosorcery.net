@@ -24,7 +24,7 @@
                     <dd>
                         <ul>
                             [%- FOREACH recent IN constants.recent_posts %]
-                            <li><a href="[% recent.url %]" title="[% recent.title %]">[% recent.title %]</a> <em>([% recent.posted_on.strftime('%B %e %Y') %])</em></li>
+                            <li><a href="[% recent.url | url %]" title="[% recent.title %]">[% recent.title %]</a> <em>([% recent.posted_on.strftime('%B %e %Y') %])</em></li>
                             [%- END %]
                         </ul>
                     </dd>
@@ -35,7 +35,7 @@
                 <h3>Archives</h3>
                 <ul>
                     [%- FOREACH archive IN constants.archives %]
-                    <li><a href="[% archive.url %]" title="[% archive.title %]">[% archive.title %]</a> ([% archive.count %])</li>
+                    <li><a href="[% archive.url | url %]" title="[% archive.title %]">[% archive.title %]</a> ([% archive.count %])</li>
                     [%- END %]
                 </ul>
             </div>
@@ -44,7 +44,7 @@
                 <h3>Tags</h3>
                 <ul>
                     [%- FOREACH tag IN constants.tags %]
-                    <li><a href="[% tag.url %]" rel="tag" title="[% tag.name %]">[% tag.name %] ([% tag.post_count %])</a></li>
+                    <li><a href="[% tag.url | url %]" rel="tag" title="[% tag.name %]">[% tag.name %] ([% tag.post_count %])</a></li>
                     [%- END %]
                 </ul>
             </div>

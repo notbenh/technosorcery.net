@@ -1,6 +1,6 @@
 <div class="article">
     <h2 class="title">
-        <a href="[% post.url %]" title="[% post.title %]">[% post.title %]</a>
+        <a href="[% post.url | url %]" title="[% post.title %]">[% post.title %]</a>
     </h2>
     <p class="meta">
         Written by [% post.author %] on [% post.posted_on.strftime('%F @ %H:%M %Z') %]
@@ -15,12 +15,12 @@
     [%- IF post.tags.size %]
         <h4 class="meta">Tagged with:</h4>
         <p>[% FOREACH tag IN post.tags %]
-        <a href="[% tag.url %]" title="[% tag.name %]">[% tag.name %]</a>
+        <a href="[% tag.url | url %]" title="[% tag.name %]">[% tag.name %]</a>
         [% END %]</p>
     [%- END %]
     </div>
     <div class="comments">
-        <a href="[% post.url %]#disqus_thread">Permalink</a>
+        <a href="[% post.url | url %]#disqus_thread">Permalink</a>
 [%~ IF !disable_comments %]
         <div id="disqus_thread"></div>
         <script type="text/javascript">
