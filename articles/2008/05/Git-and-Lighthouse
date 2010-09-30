@@ -7,18 +7,18 @@ Updated-On: 2008-05-18T10:43:00
 
 {{{ HTML }}}
 I've been playing around with <a href="http://git.or.cz/" title="Git - Fast
-Version Control System">Git</a>, <a href="http://cia.vc/" alt="">CIA.vc</a>,
-and <a href="http://lighthouseapp.com" alt="">Lighthouse</a> on a project of
+Version Control System">Git</a>, <a href="http://cia.vc/" title="CIA.vc">CIA.vc</a>,
+and <a href="http://lighthouseapp.com" title="Lighthouse">Lighthouse</a> on a project of
 mine that's recently been resurrected.
 
 There is a pretty good update hook for CIA.vc integration called <a
 href="http://git.kernel.org/?p=cogito%2Fcogito.git;a=blob;hb=HEAD;f=contrib%2Fciabot.pl"
-alt="ciabot.pl from Cogito">ciabot.pl</a> that I've been using, without any
+title="ciabot.pl from Cogito">ciabot.pl</a> that I've been using, without any
 complaints.  Unfortunately, I haven't been able to find anything to integrate
 Git with Lighthouse that hasn't needed modification out of the box.  I tried
 the (pre|post)-receive hooks provided at <a
 href="http://obvcode.blogspot.com/2007/10/using-git-with-lighthouse.html"
-alt="Obviouse Code: Using Git with Lighthouse">Obvious Code</a>, but it had a
+title="Obviouse Code: Using Git with Lighthouse">Obvious Code</a>, but it had a
 few issues.  It would use the author/committer information of the first rev it
 saw, and use that for every revision it handled.  Lighthouse couldn't
 understand the "changed-at" time format it was using.  The hook also relied on
@@ -26,7 +26,7 @@ writing out a file with the last rev it saw, so it knew where to pick up, which
 I didn't really like.
 
 So, I decided to write my own in Perl.  The latest version is available via <a
-href="http://git.or.cz/" alt="Git - Fast Version Control System">Git</a> on <a
+href="http://git.or.cz/" title="Git - Fast Version Control System">Git</a> on <a
 href="http://github.com/jhelwig/lighthouseapp-git-hook">GitHub</a>.
 {{{ Code lang=Bash }}}
 git clone git://github.com/jhelwig/lighthouseapp-git-hook.git
