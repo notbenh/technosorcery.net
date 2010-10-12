@@ -19,10 +19,10 @@ incantation to get past the gauntlet of bizarre RPM behavior.
 
 In order to reliably build/sign an RPM, you must:
 
-    * Have a signing-only RSA key.
-    * Your key cannot have any sub-keys.
-    * Your key must be > 1024-bit.
-    * You must generate the RPM with a V3 GPG signature (CentOS 5.5 can't verify V4 signatures).
+* Have a signing-only RSA key.
+* Your key cannot have any sub-keys.
+* Your key must be > 1024-bit.
+* You must generate the RPM with a V3 GPG signature (CentOS 5.5 can't verify V4 signatures).
 
 To top it all off (and this might just be my Google-fu failing me, and not
 knowing where to look) _none_ of this is actually documented anywhere outside
