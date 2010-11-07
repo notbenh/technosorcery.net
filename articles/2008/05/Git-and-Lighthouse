@@ -27,7 +27,7 @@ I didn't really like.
 
 So, I decided to write my own in Perl.  The latest version is available via <a
 href="http://git.or.cz/" title="Git - Fast Version Control System">Git</a> on <a
-href="http://github.com/jhelwig/lighthouseapp-git-hook">GitHub</a>.
+href="https://github.com/jhelwig/lighthouseapp-git-hook">GitHub</a>.
 {{{ Code lang=Bash }}}
 git clone git://github.com/jhelwig/lighthouseapp-git-hook.git
 {{{ }}}

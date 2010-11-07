@@ -21,7 +21,7 @@
                 <h3>My Stuff</h3>
                 <p>
                     <a href="http://twitter.com/jhelwig" title="My Twitter account">Twitter account</a><br />
-                    <a href="http://github.com/jhelwig" title="My GitHub account">GitHub account</a><br />
+                    <a href="https://github.com/jhelwig" title="My GitHub account">GitHub account</a><br />
                     <a href="http://search.cpan.org/~jhelwig/" title="My CPAN modules">CPAN modules</a><br />
                     <a href="http://www.linkedin.com/in/jhelwig" title="My LinkedIn profile">LinkedIn profile</a><br />
                     <a href="http://hi.im/jacob" title="Hi, I'm...">Hi, I'm</a>
@@ -62,6 +62,6 @@
     </div>
     <div id="footer">
         <p>Copyright &copy; 2009-2010, Jacob Helwig. Valid <a href="http://validator.w3.org/check/referer">XHTML</a> and <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>.</p>
-        <p>Using <a href="http://evil.che.lu/projects/skittlish">skittlish</a> on <a href="http://github.com/jhelwig/WWW-StaticBlog">WWW::StaticBlog</a>.</p>
+        <p>Using <a href="http://evil.che.lu/projects/skittlish">skittlish</a> on <a href="https://github.com/jhelwig/WWW-StaticBlog">WWW::StaticBlog</a>.</p>
     </div>
 </div>
