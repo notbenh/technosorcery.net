@@ -1,0 +1,349 @@
+Title: Offline email with gmail, mutt, postfix and offlineimap
+Author: Jacob Helwig
+Post-Date: 2010-11-21T23:43:25
+Slug: offline_email_with_gmail__mutt__postfix_and_offlineimap
+Updated-On: 2010-11-21T23:43:25
+
+One of my co-workers recently asked me to send him my setup for being
+able to read & write email while fully disconnected from the internet
+using mutt.
+
+The portion of my setup for "sending" email while offline comes almost
+verbatim from [a post on The Grand Fallacy](http://paul.frields.org/?p=2616 "Best in show.")
+and [the follow-up update](http://paul.frields.org/?p=2636 "Best in show gets better.").
+
+Sending offline
+===============
+
+Install Postfix (Be sure to select "internet site" on Debian based
+systems).
+
+Add the following to `/etc/postfix/main.cf`:
+{{{ Code lang='INI Files' }}}
+smtp_sender_dependent_authentication = yes
+sender_dependent_relayhost_maps = hash:/etc/postfix/sender_relay
+smtp_sasl_auth_enable = yes
+smtp_sasl_security_options = noanonymous
+smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd
+smtp_tls_policy_maps = hash:/etc/postfix/tls_policy
+smtp_use_tls = yes
+smtp_tls_note_starttls_offer = yes
+smtp_tls_CApath = /etc/pki/tls/certs
+{{{ }}}
+
+Create `/etc/postfix/sender_relay` mapping sender addresses to SMTP
+servers:
+{{{ Code lang='INI Files' }}}
+# per-sender provider; see also /etc/postfix/sasl_passwd
+your_gmail_address@gmail.com [smtp.gmail.com]:587
+another@address.example.com  [smtp.gmail.com]:587
+{{{ }}}
+
+Create `/etc/postfix/sasl_passwd` to store the authentication
+information for each server that requires it:
+{{{ Code lang='INI Files' }}}
+your_gmail_address@gmail.com username:password
+another@address.example.com  username2:password2
+{{{ }}}
+
+Create `/etc/postfix/tls_policy` to let Postfix know how to pass the
+authentication information to each server:
+{{{ Code lang='INI Files' }}}
+smtp.gmail.com:587 encrypt
+{{{ }}}
+
+Create the lookup tables that Postfix uses:
+{{{ Code lang=Bash }}}
+sudo postmap /etc/postfix/sender_relay
+sudo postmap /etc/postfix/sasl_passwd
+sudo postmap /etc/postfix/tls_policy
+{{{ }}}
+
+Create `/etc/NetworkManager/dispatcher.d/99offline-postfix` to handle
+automatically defer attempts to deliver mail when there isn't an
+available network connection, and resume delivery attempts when an
+internet connection becomes available again:
+{{{ Code lang=Bash }}}
+#!/bin/sh
+
+if [ "$2" == "down" ]; then
+    ( [ -z "`ip route show 0.0.0.0/0`" ] && \
+    /usr/sbin/postconf -e 'defer_transports = smtp' && \
+    /sbin/service postfix reload ) || :
+elif [ "$2" == "up" ]; then
+    ( /usr/sbin/postconf -e 'defer_transports =' && \
+    /sbin/service postfix reload && \
+    /sbin/service postfix flush ) || :
+fi
+{{{ }}}
+
+One thing that The Grand Fallacy didn't mention was that there is some
+setup required in Mutt to get this to work.  You'll need to make sure
+that you have Mutt setup to pass along the from address used in the
+composed email.
+
+Put the following in your `.muttrc`:
+{{{ Code lang=Bash }}}
+set envelope_from=yes
+{{{ }}}
+
+Reading offline
+===============
+
+Now that you can send email while offline, it'd probably be handy to be
+able to be able to read email while offline, too.  I use offlineimap for
+this, and setup Mutt to read the local maildirs that it sets up.
+
+The `~/.offlineimaprc` file:
+{{{ Code lang='INI Files' }}}
+[general]
+ui = Noninteractive.Basic
+accounts = GMail, OtherGMail
+maxsyncaccounts = 5
+maxconnections = 3
+
+[mbnames]
+enabled = yes
+filename = ~/.mutt/muttrc.mailboxes
+header = "mailboxes "
+peritem = ="%(foldername)s"
+sep = " "
+footer = "\n"
+
+[Account GMail]
+localrepository = GMailLocal
+remoterepository = GMailRemote
+autorefresh = 2
+
+[Repository GMailLocal]
+type = Maildir
+localfolders = ~/IMAP/GMail
+
+[Repository GMailRemote]
+type = Gmail
+realdelete = no
+remoteuser = name@gmail.com
+remotepass = password1
+holdconnectionopen = true
+keepalive = 60
+timeout = 120
+
+[Account OtherGMail]
+localrepository = OtherGmailLocal
+remoterepository = OtherGmailRemote
+autorefresh = 2
+
+[Repository OtherGmailLocal]
+type = Maildir
+localfolders = ~/IMAP/OtherGmail
+
+[Repository OtherGmailRemote]
+type = Gmail
+realdelete = no
+remoteuser = other@gmail.com
+remotepass = password2
+holdconnectionopen = true
+keepalive = 60
+timeout = 120
+{{{ }}}
+
+I like having a (relatively) clear separation between my work, and
+personal email, so I have my `.muttrc` split out into three files:
+`.muttrc_common`, `.muttrc`, and `.muppetrc`.  The `.muppetrc` makes a
+bit more sense knowing that I currently work at [Puppet Labs](http://puppetlabs.com "Puppet Labs")
+(Mutt + Puppet = Muppet).  I call `mutt` from the command line
+normally, when I want my personal email, and I use a `muppet` alias
+(`mutt -F ~/.muppetrc`) to use my work email.
+
+In the `.muttrc_common` I have a bunch of things that are common to both
+my work, and personal email:
+{{{ Code lang=Bash }}}
+set xterm_set_titles
+
+lists git@vger.kernel.org
+set followup_to=no
+
+set alias_file=~/.mutt/aliases
+
+set editor="vim"
+set edit_headers # See the headers when editing
+set autoedit     # Go straight to editing; don't prompt for recipients
+set forward_format="Fwd: %s"    # traditional Fwd: subject
+set attribution="On %{%a, %d %b %Y %H:%M:%S %z}, %n wrote:"
+set signature="signify|"
+
+set mbox_type=Maildir
+set spoolfile=+/INBOX
+set mail_check=3
+
+set record=+/"[Gmail].Sent Mail"
+set postponed=+/"[Gmail].Drafts"
+
+set realname = "Jacob Helwig"
+
+source ~/.mutt/muttrc.mailboxes
+
+# Setup goobook Google Contacts tab completion
+set query_command = "goobook query '%s'"
+macro index,pager a "<pipe-message>goobook add<return>" "add the sender address to Google contacts"
+bind editor <Tab> complete-query
+bind editor ^T complete
+
+macro index       E "<change-folder>+/[Gmail].All Mail<enter><limit>~B " "search everything"
+macro index,pager D "<save-message>+/[Gmail].Trash<enter>"               "move message to the trash"
+macro index,pager S "<save-message>+/[Gmail].Spam<enter>"                "mark message as spam"
+
+set envelope_from=yes
+set reverse_name
+
+set header_cache=~/.mutt/cache/headers
+set message_cachedir=~/.mutt/cache/bodies
+set certificate_file=~/.mutt/certificates
+
+set move = no
+
+set pager_context=1
+set pager_index_lines=6                 #show a mini-index in pager
+set menu_scroll
+set status_on_top                       #put status line at top
+set sort=threads                        #sort by message threads in index
+set sort_aux = 'last-date-sent'
+set duplicate_threads
+
+# PGP setup
+set header
+my_hdr X-PGP-Key: http://technosorcery.net/pubkey.asc
+set pgp_good_sign="^gpg: Good signature from"
+set pgp_timeout=1800
+set pgp_use_gpg_agent
+set pgp_verify_sig                  # show pgp in pager
+set pgp_autosign
+set pgp_replysign
+set pgp_replyencrypt
+set pgp_replysignencrypted
+# END PGP setup
+
+set status_format=" %r %b %f %n      Del %d      Msgs %m %l %> (%P)"
+set pager_format="[%4C/%4m] (%S%Z) %%=%N $i %> [%lL]"
+set date_format="!%H:%M %a %d %b     "
+set index_format="%4C %Z %[%b%d] %-15.15F %s"
+set folder_format="%2C %t %8s %d %N %f"
+
+set record=''
+set copy=no
+set include=yes                         #quote msg in reply
+set fast_reply=yes                      #no prompting on reply
+set beep=no                             #no noise
+set markers=no                          #no + on wrapped lines
+set to_chars=" +TCF"                    #no L for mail_list
+
+save-hook .* ~/keep                      #default mbox to (s)ave mail is ~/keep
+
+bind pager h      display-toggle-weed   #toggle headers with h key
+bind pager <Up>   previous-line
+bind pager <Down> next-line
+
+# simulate the old url menu
+macro index \cb |urlview\n 'call urlview to extract URLs out of a message'
+macro pager \cb |urlview\n 'call urlview to extract URLs out of a message'
+
+# Render HTML email
+auto_view text/html
+alternative_order text/plain text/enriched text/html text image/*
+
+# Colorize diffs.
+set allow_ansi
+auto_view text/x-diff
+auto_view text/x-patch
+color body brightred    black "^-.*"
+color body brightgreen  black "^[+].*"
+color body brightwhite  black "^diff --git.*"
+color body brightwhite  black "^index [a-f0-9].*"
+color body brightyellow black "^@@.*"
+
+# default list of header fields to weed out when displaying mail
+#ignore them all and then unignore what you want to see
+ignore *
+unignore  Date To Cc Bcc From Subject X-Mailer Organization User-Agent Message-ID
+hdr_order Date From To Cc Bcc X-Mailer User-Agent Organization Message-ID Subject
+
+##your Mutt has to have some colors
+color quoted     green         black
+color quoted1    magenta       blue
+color quoted2    yellow        black
+color quoted3    red           black
+color signature  cyan          cyan
+
+color hdrdefault brightcyan    black
+color header     brightwhite   black "^from:"
+color header     brightwhite   black "^subject:"
+
+color quoted     brightgreen   black
+color signature  brightwhite   black
+
+color indicator  black         blue
+
+color error      red           black
+mono  error      bold
+color status     black         cyan
+mono  status     bold
+color tree       green         black
+
+color tilde      brightmagenta black
+color body       brightwhite   black "[-a-z_0-9.]+@[-a-z_0-9.]+"
+mono  body       bold                "[-a-z_0-9.]+@[-a-z_0-9.]+"
+color body       brightyellow  black "^Good signature"
+mono  body       bold                "^Good signature"
+color body       brightwhite   red   "^Bad signature from.*"
+mono  body       bold                "^Bad signature from.*"
+color normal     white         black
+color message    green         black
+color attachment black         blue
+
+color  body      brightgreen     default "^gpg: Good signature .*"
+color  body      white           default "^gpg: "
+color  body      brightwhite     red     "^gpg: BAD signature from.*"
+
+color index      brightyellow  black ~N # New
+color index      yellow        black ~O # Old
+color index      magenta       black ~F # Flagged
+color index      blue          black ~T # Tagged
+color index      red           black ~D # Deleted
+color index      white         black ~R # Read
+{{{ }}}
+
+This sets up some really nice things like colorized diffs in email
+(really handy for reading the puppet-dev, and git mailing lists), an
+X-PGP-Key header with a link to my GPG public key, and going straight to
+the editor when I want to compose an email, instead of prompting me for
+a subject, and recipients (I can change these headers directly in the
+editor, anyway).  Sourcing `~/.mutt/muttrc.mailboxes` gives me new mail
+notifications for all of the tags I have setup through GMail, since they
+each show up as their own folder.
+
+In my `.muttrc`, I have:
+{{{ Code lang=Bash }}}
+source ~/.muttrc_common
+
+# GMail Setup
+set folder=$HOME/IMAP/GMail
+
+alternates "^(jacob|jhelwig)@(technosorcery.net|perlninja.com)"
+set from = "jacob@technosorcery.net"
+# END GMail Setup
+{{{ }}}
+
+In my `.muppetrc`, I have:
+{{{ Code lang=Bash }}}
+source ~/.muttrc_common
+
+# Puppet Setup
+set folder=$HOME/IMAP/Puppet
+
+alternates "^jacob@(puppetlabs.com|reductivelabs.com)"
+set from = "jacob@puppetlabs.com"
+save-hook .* ~/work/review # default mbox to (s)ave mail
+# END Puppet Setup
+{{{ }}}
+
+There really isn't much that's specific to each.
