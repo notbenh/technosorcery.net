@@ -3,7 +3,7 @@ Author: Jacob Helwig
 Tags: GPG RPM packaging
 Post-Date: 2010-10-10T00:16:50
 Slug: pitfalls_with_rpm_and_gpg
-Updated-On: 2010-10-11T23:30:36
+Updated-On: 2011-04-07T09:28:37
 
 As part of automating the packaging process for
 [Puppet Dashboard](http://www.puppetlabs.com/puppet/related-projects/dashboard/ "Puppet Dashboard")
@@ -34,7 +34,7 @@ for `rpm` failing to verify V4 GPG signatures in older versions by picking
 apart one of the
 [bugs filed against rpm](https://bugzilla.redhat.com/show_bug.cgi?id=436812 "RPM Bug").
 If you add the following to your `~/.rpmmacros` file, replacing `omg@kitte.ns`
-with your key ID (provided your key meets the other two conditions above), then
+with your key ID (provided your key meets the other three conditions above), then
 you should be all set.
 
 {{{ Code lang=Bash }}}
