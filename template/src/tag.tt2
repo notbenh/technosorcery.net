@@ -1,27 +1,27 @@
 <div class="tag-listings">
-    <div class="current">
-        Current tags:
-        [%- FOREACH tag IN tags %]
-            [%- minus_name = tag.name %]
-            [% tag.name %][% IF tags.size > 1 %]<a href="[% minus.$minus_name %]" title="Without [% tag.name %]">[-]</a>[% END %]
-        [%- END %]
-        <span class="post-count">
-            ([% posts.size %] post[% IF posts.size != 1 %]s[% END %])
-        </span>
-    </div>
-    [%- IF plus.size %]
-    <div class="additional">
-        Additional tags:
-        [%- FOREACH tag IN plus %]
-            <a href="[% tag.link %]" title="Add [% tag.name %] to search">[% tag.name %]</a> ([% tag.count %])
-        [%- END %]
-    </div>
+  <div class="current">
+    Current tags:
+    [%- FOREACH tag IN tags %]
+    [%- minus_name = tag.name %]
+    [% tag.name %][% IF tags.size > 1 %]<a href="[% minus.$minus_name %]" title="Without [% tag.name %]">[-]</a>[% END %]
     [%- END %]
+    <span class="post-count">
+      ([% posts.size %] post[% IF posts.size != 1 %]s[% END %])
+    </span>
+  </div>
+  [%- IF plus.size %]
+  <div class="additional">
+    Additional tags:
+    [%- FOREACH tag IN plus %]
+    <a href="[% tag.link %]" title="Add [% tag.name %] to search">[% tag.name %]</a> ([% tag.count %])
+    [%- END %]
+  </div>
+  [%- END %]
 </div>
 
 [% FOR post IN posts -%]
-    [%- INCLUDE
-        'post.tt2'
-        disable_comments = 1
-    %]
+  [%- INCLUDE
+      'post.tt2'
+      disable_comments = 1
+  %]
 [%- END %]

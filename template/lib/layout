@@ -1,67 +1,67 @@
 <div id="wrapper">
-    <div id="header" class="clearfix">
-        <div id="title" class="clearfix">
-            <h1><a href="/" title="Home">[% constants.site_title | html_entity %]</a></h1>
-        </div>
+  <div id="header" class="clearfix">
+    <div id="title" class="clearfix">
+      <h1><a href="/" title="Home">[% constants.site_title | html_entity %]</a></h1>
+    </div>
+  </div>
+
+  <div id="contentwrapper" class="clearfix">
+    <div id="content">
+      <div id="innerwrapper">
+        [% content %]
+      </div>
     </div>
 
-    <div id="contentwrapper" class="clearfix">
-        <div id="content">
-            <div id="innerwrapper">
-                [% content %]
-            </div>
-        </div>
-
-        <div id="sidebar">
-            <div class="boxy short">
-                <h3>About</h3>
-                <p>I'm just a Perl hacker, occaisionally dabbling in some Ruby &amp; Rails.</p>
-            </div>
-            <div class="boxy short">
-                <h3>My Stuff</h3>
-                <p>
-                    <a href="http://twitter.com/jhelwig" title="My Twitter account">Twitter account</a><br />
-                    <a href="https://github.com/jhelwig" title="My GitHub account">GitHub account</a><br />
-                    <a href="http://search.cpan.org/~jhelwig/" title="My CPAN modules">CPAN modules</a><br />
-                    <a href="http://www.linkedin.com/in/jhelwig" title="My LinkedIn profile">LinkedIn profile</a><br />
-                    <a href="http://hi.im/jacob" title="Hi, I'm...">Hi, I'm</a>
-                </p>
-            </div>
-            <div class="boxy tall minor">
-                <h3>Recent</h3>
-                <dl>
-                    <dt>Articles <a class="feed" href="http://feeds.feedburner.com/TechnosorceryNetworks" rel="alternate" type="application/rss+xml"><span>feed</span></a></dt>
-                    <dd>
-                        <ul>
-                            [%- FOREACH recent IN constants.recent_posts %]
-                            <li><a href="[% recent.url | url %]" title="[% recent.title | html_entity %]">[% recent.title | html_entity %]</a> <em>([% recent.posted_on.strftime('%B %e %Y') | html_entity %])</em></li>
-                            [%- END %]
-                        </ul>
-                    </dd>
-                </dl>
-            </div>
-            [%- IF constants.archives.size %]
-            <div class="boxy short">
-                <h3>Archives</h3>
-                <ul>
-                    [%- FOREACH archive IN constants.archives %]
-                    <li><a href="[% archive.url | url %]" title="[% archive.title | html_entity %]">[% archive.title | html_entity %]</a> ([% archive.count %])</li>
-                    [%- END %]
-                </ul>
-            </div>
-            [%- END %]
-            <div class="boxy tall">
-                <h3>Tags</h3>
-                <ul>
-                    [%- FOREACH tag IN constants.tags %]
-                    <li><a href="[% tag.url | url %]" rel="tag" title="[% tag.name | html_entity %]">[% tag.name | html_entity %] ([% tag.post_count %])</a></li>
-                    [%- END %]
-                </ul>
-            </div>
-        </div>
+    <div id="sidebar">
+      <div class="boxy short">
+        <h3>About</h3>
+        <p>I'm just a Perl hacker, occaisionally dabbling in some Ruby &amp; Rails.</p>
+      </div>
+      <div class="boxy short">
+        <h3>My Stuff</h3>
+        <p>
+          <a href="http://twitter.com/jhelwig" title="My Twitter account">Twitter account</a><br />
+          <a href="https://github.com/jhelwig" title="My GitHub account">GitHub account</a><br />
+          <a href="http://search.cpan.org/~jhelwig/" title="My CPAN modules">CPAN modules</a><br />
+          <a href="http://www.linkedin.com/in/jhelwig" title="My LinkedIn profile">LinkedIn profile</a><br />
+          <a href="http://hi.im/jacob" title="Hi, I'm...">Hi, I'm</a>
+        </p>
+      </div>
+      <div class="boxy tall minor">
+        <h3>Recent</h3>
+        <dl>
+          <dt>Articles <a class="feed" href="http://feeds.feedburner.com/TechnosorceryNetworks" rel="alternate" type="application/rss+xml"><span>feed</span></a></dt>
+          <dd>
+            <ul>
+              [%- FOREACH recent IN constants.recent_posts %]
+              <li><a href="[% recent.url | url %]" title="[% recent.title | html_entity %]">[% recent.title | html_entity %]</a> <em>([% recent.posted_on.strftime('%B %e %Y') | html_entity %])</em></li>
+              [%- END %]
+            </ul>
+          </dd>
+        </dl>
+      </div>
+      [%- IF constants.archives.size %]
+      <div class="boxy short">
+        <h3>Archives</h3>
+        <ul>
+          [%- FOREACH archive IN constants.archives %]
+          <li><a href="[% archive.url | url %]" title="[% archive.title | html_entity %]">[% archive.title | html_entity %]</a> ([% archive.count %])</li>
+          [%- END %]
+        </ul>
+      </div>
+      [%- END %]
+      <div class="boxy tall">
+        <h3>Tags</h3>
+        <ul>
+          [%- FOREACH tag IN constants.tags %]
+          <li><a href="[% tag.url | url %]" rel="tag" title="[% tag.name | html_entity %]">[% tag.name | html_entity %] ([% tag.post_count %])</a></li>
+          [%- END %]
+        </ul>
+      </div>
     </div>
-    <div id="footer">
-        <p>Copyright &copy; 2009-2010, Jacob Helwig. Valid <a href="http://validator.w3.org/check/referer">XHTML</a> and <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>.</p>
-        <p>Using <a href="http://evil.che.lu/projects/skittlish">skittlish</a> on <a href="https://github.com/jhelwig/WWW-StaticBlog">WWW::StaticBlog</a>.</p>
-    </div>
+  </div>
+  <div id="footer">
+    <p>Copyright &copy; 2009-2010, Jacob Helwig. Valid <a href="http://validator.w3.org/check/referer">XHTML</a> and <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>.</p>
+    <p>Using <a href="http://evil.che.lu/projects/skittlish">skittlish</a> on <a href="https://github.com/jhelwig/WWW-StaticBlog">WWW::StaticBlog</a>.</p>
+  </div>
 </div>
