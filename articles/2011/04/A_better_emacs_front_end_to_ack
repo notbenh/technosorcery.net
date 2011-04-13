@@ -3,7 +3,7 @@ Author: Jacob Helwig
 Tags: ack emacs lisp
 Slug: a_better_emacs_front-end_to_ack
 Post-Date: 2011-04-02T10:41:10
-Updated-On: 2011-04-02T10:41:10
+Updated-On: 2011-04-12T20:51:58
 
 I've been giving emacs a try after having probably the most civilized
 "emacs vs. vim" discussion I've ever seen or been a part of.  The
@@ -15,7 +15,7 @@ discussion took place just over two weeks ago at the
 
 I've discovered a few things in working with emacs that I really wish
 vim had, and I've really missed a few things that I had from vim.  I'm
-trying to make sure that I give emacs a fair shot, so I'm trying our a
+trying to make sure that I give emacs a fair shot, so I'm trying out a
 few elisp scripts, and tweaking things as I go along, since my vim
 setup is hardly "stock".
 
