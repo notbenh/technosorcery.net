@@ -1,0 +1,16 @@
+AddDefaultCharset utf-8
+
+redirect 301 /2010/2/8/fun-with-the-upcoming-1-7-release-of-git.html /2010/02/07/fun_with_the_upcoming_1.7_release_of_git_rebase_--interactive_--autosquash.html
+
+#redirect 301 /2007/09/06/soft_resolution_of_request_tracker_tickets..html
+#redirect 301 /2008/05/18/git_lighthouse.html
+#redirect 301 /2009/09/30/unhappy_with_the_standard_rails_authorization_plugins.html
+#redirect 301 /2009/10/04/fixing_the_oniguruma_gem_for_use_on_dreamhost.html
+#redirect 301 /2009/10/06capistrano_completion_in_zsh.html
+#redirect 301 /2010/02/07/fun_with_the_upcoming_1.7_release_of_git_rebase_--interactive_--autosquash.html
+#redirect 301 /2010/04/02/ditching_dynamic_blog_engines_.html
+#redirect 301 /2010/04/10/helper_script_for_creating_posts_with_www__staticblog.html
+#redirect 301 /2010/05/01/"dear_jacob"_git_advice__git_add_-u.html
+#redirect 301 /2010/10/10/pitfalls_with_rpm_and_gpg.html
+#redirect 301 /2010/11/21/offline_email_with_gmail__mutt__postfix_and_offlineimap.html
+#redirect 301 /2011/04/02/a_better_emacs_front-end_to_ack.html

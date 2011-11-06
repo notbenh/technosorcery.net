@@ -17,7 +17,7 @@ index_filenames: [ 'index.html' ]
 # Whether or not to generate a diff of the compiled content when compiling a
 # site. The diff will contain the differences between the compiled content
 # before and after the last site compilation.
-enable_output_diff: false
+enable_output_diff: true
 
 # The data sources where nanoc loads its data from. This is an array of
 # hashes; each array element represents a single data source. By default,
@@ -57,3 +57,8 @@ watcher:
   # When to send notifications (using Growl or notify-send).
   notify_on_compilation_success: true
   notify_on_compilation_failure: true
+base_url: "http://technosorcery.net"
+title: "Technosorcery Networks"
+tagline: "Ramblings of Jacob Helwig"
+author: "Jacob Helwig"
+author_url: "http://about.me/jhelwig"

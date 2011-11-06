@@ -1,0 +1,31 @@
+<% @entry ||= @item %>
+<div class="article">
+  <h2 class="title">
+    <a href="<%= relative_path_to(@entry) %>" title="<%= h @entry[:title] %>"><%= h @entry[:title] %></a>
+  </h2>
+  <p class="meta">
+    Written by <a href="<%= @entry[:author_url] || @site.config[:author_url] %>"><%= h(@entry[:author] || @site.config[:author]) %></a> on <%= h @entry[:created_at].strftime('%F @ %H:%M %Z') %>
+    <% if @entry[:updated_at] && @entry[:updated_at] != @entry[:created_at] %>(Last updated: <%= h @entry[:updated_at].strftime('%F @ %H:%M %Z') %>)<% end %>
+  </p>
+  <div class="body">
+    <% if block_given? %><%= yield %><% else %><%= @entry.compiled_content %><% end %>
+  </div>
+  <div class="footer">
+    <% if @entry[:tags] && @entry[:tags].length > 0 %><h4 class="meta">Tagged with:</h4> <p><% @entry[:tags].each do |tag| %><%= link_for_tag(tag, '/tag/') %> <% end %></p><% end %>
+  </div>
+  <div class="comments">
+    <a href="<%= relative_path_to(@entry) %>#disqus_thread">Permalink</a>
+    <% unless @disable_comments %>
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://technosorcerynetworks.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript><p>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=technosorcerynetworks">comments powered by Disqus.</a></p></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+    <% end %>
+  </div>
+</div>
