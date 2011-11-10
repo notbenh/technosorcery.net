@@ -1,5 +1,6 @@
-# Editor artifacts.
-.*.sw[op]
-
-# Build results.
-/build/
+.\#*
+\#*\#
+/.rvmrc
+/output/
+/output.diff
+/tmp/

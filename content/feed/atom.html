@@ -1,0 +1,6 @@
+<%=
+atom_feed(
+   :limit => 10,
+   :content_proc => lambda {|a| a.compiled_content(:rep => :feed) }
+)
+%>
