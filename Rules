@@ -13,14 +13,44 @@
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
-compile '/stylesheet/' do
-  # don’t filter or layout
+preprocess do
+  canonicalize_created_at
+  generate_summary_pages
 end
 
-compile '/syntax_highlight/' do
+# don’t filter or layout
+compile '/stylesheets/*' do; end
+compile '/javascripts/*' do; end
+compile '/htaccess/'     do; end
+compile '/pubkey_asc/'   do; end
+compile '/resume_pdf/'   do; end
+
+compile '/feed/atom/' do
+  filter :erb
 end
 
-compile '/htaccess/' do
+compile '/posts/*', :rep => :feed do
+  if item.binary?
+    # don’t filter binary items
+  else
+    filter :erb
+    filter(
+      :colorize_syntax,
+      :default_colorizer => :pygmentize,
+      :pygmentize => { :linenos => :table }
+    )
+    case item[:extension]
+    when 'txt'
+      filter :redcloth
+    when 'md', 'markdown'
+      # Need to make sure we use symbolic entity output, since the
+      # default is to output the character itself, which is not so
+      # much with the goodness.
+      filter :kramdown, :entity_output => :symbolic
+    when 'haml'
+      filter :haml
+    end
+  end
 end
 
 compile '/posts/*' do
@@ -37,7 +67,10 @@ compile '/posts/*' do
     when 'txt'
       filter :redcloth
     when 'md', 'markdown'
-      filter :kramdown
+      # Need to make sure we use symbolic entity output, since the
+      # default is to output the character itself, which is not so
+      # much with the goodness.
+      filter :kramdown, :entity_output => :symbolic
     when 'haml'
       filter :haml
     end
@@ -74,17 +107,32 @@ compile '*' do
   end
 end
 
-route '/stylesheet/' do
-  '/style.css'
+route '/stylesheets/*' do
+  item.identifier.chop + '.' + item[:extension]
 end
 
-route '/syntax_highlight/' do
-  '/stylesheets/syntax_highlight.css'
+route '/javascripts/*' do
+  item.identifier.chop + '.' + item[:extension]
 end
 
 route '/htaccess/' do
   '/.htaccess'
 end
+
+route '/pubkey_asc/' do
+  '/pubkey.asc'
+end
+
+route '/resume_pdf/' do
+  '/resume.pdf'
+end
+
+route '/feed/atom/' do
+  '/feed/atom.xml'
+end
+
+# For internal use only.
+route '/posts/*', :rep => :feed do; end
 
 route '*' do
   if item.binary?
@@ -96,4 +144,4 @@ route '*' do
   end
 end
 
-layout '*', :erb
+layout '*', :haml, :format => :html5

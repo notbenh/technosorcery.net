@@ -60,5 +60,12 @@ watcher:
 base_url: "http://technosorcery.net"
 title: "Technosorcery Networks"
 tagline: "Ramblings of Jacob Helwig"
-author: "Jacob Helwig"
-author_url: "http://about.me/jhelwig"
+author_name: "Jacob Helwig"
+author_uri: "http://about.me/jhelwig"
+deploy:
+  public:
+    dst: "technosorcery.net:~/technosorcery.net"
+    options: [ '-vrlptSPhi', '--delete-after', '--delay-updates', '--stats' ]
+  staging:
+    dst: "technosorcery.net:~/staging.technosorcery.net"
+    options: [ '-vrlptSPhi', '--delete-after', '--delay-updates', '--stats' ]
