@@ -7,7 +7,10 @@ require "cgi"
 # Be sure your public key is listed in your server's ~/.ssh/authorized_keys file
 ssh_user       = "technosorcery.net"
 ssh_port       = "22"
-document_root  = "~/staging.technosorcery.net/"
+document_root  = {
+  :production => "~/technosorcery.net/",
+  :staging    => "~/staging.technosorcery.net/"
+}
 deploy_default = "rsync"
 
 # This will be configured for you when you run config_deploy
@@ -200,9 +203,10 @@ end
 ##############
 
 desc "Default deploy task"
-task :deploy do
+task :deploy, :environment do |t, args|
+  args.environment = :staging unless args.environment
   Rake::Task[:copydot].invoke(source_dir, public_dir)
-  Rake::Task["#{deploy_default}"].execute
+  Rake::Task["#{deploy_default}"].execute(args)
 end
 
 desc "Generate website and deploy"
@@ -220,9 +224,9 @@ task :copydot, :source, :dest do |t, args|
 end
 
 desc "Deploy website via rsync"
-task :rsync do
+task :rsync, :environment do |t, args|
   puts "## Deploying website via Rsync"
-  ok_failed system("rsync -avze 'ssh -p #{ssh_port}' --delete #{public_dir}/ #{ssh_user}:#{document_root}")
+  ok_failed system("rsync -avze 'ssh -p #{ssh_port}' --delete #{public_dir}/ #{ssh_user}:#{document_root[args.environment.to_sym]}")
 end
 
 desc "deploy public directory to github pages"
