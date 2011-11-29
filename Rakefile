@@ -1,6 +1,7 @@
 require "rubygems"
 require "bundler/setup"
 require "stringex"
+require "cgi"
 
 ## -- Rsync Deploy config -- ##
 # Be sure your public key is listed in your server's ~/.ssh/authorized_keys file
@@ -102,7 +103,7 @@ task :new_post, :title do |t, args|
   open(filename, 'w') do |post|
     post.puts "---"
     post.puts "layout: post"
-    post.puts "title: \"#{title.gsub(/&/,'&amp;')}\""
+    post.puts "title: \"#{CGI.escapeHTML(title)}\""
     post.puts "date: #{Time.now.strftime('%Y-%m-%dT%H:%M:%S%z')}" # 2011-04-02T10:41:10-07:00
     post.puts "comments: true"
     post.puts "categories: "
