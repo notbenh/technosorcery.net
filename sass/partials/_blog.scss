@@ -4,7 +4,6 @@ article {
   a { @extend .force-wrap; }
   header {
     position: relative;
-    padding-top: 2em;
     padding-bottom: 1em;
     margin-bottom: 1em;
     background: $img-border bottom left repeat-x;
@@ -17,11 +16,7 @@ article {
       font-size: .9em;
       color: $text-color-light;
       margin: 0;
-      &.meta {
-        @extend .sans;
-        text-transform: uppercase;
-        position: absolute; top: 0;
-      }
+      &.meta { @extend .sans; }
     }
     @media only screen and (min-width: 768px) {
       margin-bottom: 1.5em;
