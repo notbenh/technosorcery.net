@@ -14,6 +14,8 @@ days later, if there haven't been any replies in that time.
 I have received permission from my employer to release this under the
 [GNU GPLv2][gpl-license].
 
+<!--more-->
+
 Now that the background info is done with, here's the solution I came
 up with to be able to have a soft resolution of tickets.
 

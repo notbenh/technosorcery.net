@@ -15,6 +15,8 @@ discussion took place just over two weeks ago at the
 (emacs) and [Ben Hengst](http://twitter.com/notbenh "Ben Hengst's Twitter account")
 (vim).
 
+<!--more-->
+
 I've discovered a few things in working with emacs that I really wish
 vim had, and I've really missed a few things that I had from vim.  I'm
 trying to make sure that I give emacs a fair shot, so I'm trying out a

@@ -12,6 +12,8 @@ There's always another yak that needs shaving.  Since creating posts with
 wasn't fast enough for my tastes, I made a small script to make it even
 faster!
 
+<!--more-->
+
 Before, I would create the directory hirarchy, if I haven't yet made a
 post this month, coming up with a file name that has some relavence to
 the post contents, but is still sane for a file name, and opening it up

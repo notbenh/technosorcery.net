@@ -11,6 +11,8 @@ The upcoming Git 1.7 has a _lot_ of really nice improvements, and new features.
 One of the big new features is the `--autosquash` argument for `git rebase
 --interactive`.
 
+<!--more-->
+
 If you're anything like me, then you commit a _lot_, while you're working on
 something, and use `git rebase --interactive` judiciously to clean up all these
 incremental commits into a presentable format.  If you're a bit more like me,

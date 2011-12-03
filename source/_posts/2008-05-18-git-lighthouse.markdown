@@ -13,8 +13,11 @@ resurrected.
 There is a pretty good update hook for CIA.vc integration called
 [ciabot.pl][ciabot.pl] that I've been using, without any complaints.
 Unfortunately, I haven't been able to find anything to integrate Git
-with Lighthouse that hasn't needed modification out of the box.  I
-tried the (pre|post)-receive hooks provided at
+with Lighthouse that hasn't needed modification out of the box.
+
+<!--more-->
+
+I tried the (pre|post)-receive hooks provided at
 [Obvious Code][obv-code], but it had a few issues.  It would use the
 author/committer information of the first rev it saw, and use that for
 every revision it handled.  Lighthouse couldn't understand the

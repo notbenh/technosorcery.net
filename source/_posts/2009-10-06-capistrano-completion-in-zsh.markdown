@@ -21,6 +21,8 @@ a `~/.zsh_cache/` directory for caching zsh's completions, so I
 decided to modify the script I found to put the cache file there,
 instead.
 
+<!--more-->
+
 ``` bash ~/.zsh.d/S50_capistrano
 _cap_does_task_list_need_generating () {
   if [ ! -f cap_tasks ]; then return 0;

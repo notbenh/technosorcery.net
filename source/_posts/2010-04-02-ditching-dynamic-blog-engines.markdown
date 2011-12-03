@@ -21,6 +21,8 @@ to come up in the "cold cache" case, and I'd actually gotten a few
 complaints about that.  After this, I decided that I was just going to
 do away with "dynamic blog engines" entirely.
 
+<!--more-->
+
 Enter [WWW::StaticBlog][WWW-StaticBlog].  I decided that I was just
 going to statically generate every page, and upload them to the shared
 host.  No more worrying about spammers trying to "hack" my site, and

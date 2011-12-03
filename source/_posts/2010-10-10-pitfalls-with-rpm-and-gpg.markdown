@@ -19,6 +19,8 @@ good signature from _any_ of the systems we were testing with.
 After much cursing, and Googling, we were able to find the correct
 incantation to get past the gauntlet of bizarre RPM behavior.
 
+<!--more-->
+
 In order to reliably build/sign an RPM, you must:
 
 * Have a signing-only RSA key.

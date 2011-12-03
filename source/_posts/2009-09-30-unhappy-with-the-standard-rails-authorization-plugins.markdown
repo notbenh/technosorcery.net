@@ -12,6 +12,8 @@ hate ActiveRecord, or can tolerate it, but that's a post for another time.).
 That is, until I started looking into the various plugins/frameworks for doing
 Authorization in Rails.
 
+<!--more-->
+
 After searching around for a bit, the two main contenders I found were
 [rails-authorization-plugin][rails-authorization-plugin], and
 [acl9][acl9]. acl9 seemed to be, by far, the more commonly recommended

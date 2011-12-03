@@ -13,6 +13,8 @@ questions about Git for the people that I know.
 
 Welcome to the first installment of the "Dear Jacob" Git advice column!
 
+<!--more-->
+
 The first tip comes about because of wanting to add all of the modified
 files to the index, without adding any test, or experimental files that
 might also be in your tree.

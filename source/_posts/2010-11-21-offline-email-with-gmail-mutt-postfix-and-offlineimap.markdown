@@ -10,6 +10,8 @@ One of my co-workers recently asked me to send him my setup for being
 able to read & write email while fully disconnected from the internet
 using mutt.
 
+<!--more-->
+
 The portion of my setup for "sending" email while offline comes almost
 verbatim from [a post on The Grand Fallacy](http://paul.frields.org/?p=2616 "Best in show.")
 and [the follow-up update](http://paul.frields.org/?p=2636 "Best in show gets better.").

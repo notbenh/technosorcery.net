@@ -18,6 +18,8 @@ already having the Oniguruma library installed (in a standard system
 location).  This is a pretty well documented problem, with a
 [simple fix][extconf-patch].
 
+<!--more-->
+
 Unfortunately, I wasn't even able to get the gem to build at all with
 the original `Rakefile` that comes with it, and gave up very quickly
 on trying to fix it.  Fortunately, there is a wonderful gem out there
