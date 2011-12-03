@@ -1,5 +1,21 @@
 body > header {
-  background: $header-bg;
+  /* fallback */
+  background-color: $header-bg;
+
+  /* Safari 4-5, Chrome 1-9 */
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from($header-bg), to($header-border));
+
+  /* Safari 5.1, Chrome 10+ */
+  background: -webkit-linear-gradient(top, $header-bg, $header-border);
+
+  /* Firefox 3.6+ */
+  background: -moz-linear-gradient(top, $header-bg, $header-border);
+
+  /* IE 10 */
+  background: -ms-linear-gradient(top, $header-bg, $header-border);
+
+  /* Opera 11.10+ */
+  background: -o-linear-gradient(top, $header-bg, $header-border);
   h1 {
     display: inline-block;
     margin: 0;
