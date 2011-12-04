@@ -34,10 +34,13 @@ have always been very constructive.
 
 I can most easily be reached via [email][] and [Twitter][].
 
-I can be found online at a number of places (there may be a pattern here):
+Additional information about me can be found various places online
+(there may be a pattern here):
 
 * GitHub - [jhelwig][github]
 * Twitter - [@jhelwig][twitter]
+* GPG Key - [0x282E4321][gpg-key]
+* R&eacute;sum&eacute; - [PDF][resume-pdf]
 * coderwall - [jhelwig][coderwall]
 * RubyGems.org - [jhelwig][rubygems.org]
 * CPAN - [jhelwig][cpan]
@@ -54,3 +57,5 @@ I can be found online at a number of places (there may be a pattern here):
 [coderwall]: http://coderwall.com/jhelwig "jhelwig on coderwall
 [rubygems.org]: https://rubygems.org/profiles/467 "jhelwig on RubyGems.org"
 [GitHub meets CPAN]: http://www.github-meets-cpan.com/user/JHELWIG "jhelwig on GitHub meets CPAN"
+[gpg-key]: /downloads/pubkey.asc "Jacob's public GPG key"
+[resume-pdf]: /downloads/resume.pdf "Jacob's R&eacute;sum&eacute; in PDF form"
