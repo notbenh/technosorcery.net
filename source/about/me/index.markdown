@@ -3,7 +3,7 @@ layout: page
 title: About Me
 comments: false
 sharing: false
-footer: true
+footer: false
 ---
 
 My name is Jacob Helwig, and I am a software developer particularly
