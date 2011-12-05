@@ -3,6 +3,10 @@ AddType application/atom+xml .xml
 
 ErrorDocument 404 /error/404/
 
+# Old document locations
+redirect 301 /pubkey.asc /downloads/pubkey.asc
+redirect 301 /resume.pdf /downloads/resume.pdf
+
 # Referenced a few times on StackOverflow
 redirect 301 /2010/2/8/fun-with-the-upcoming-1-7-release-of-git.html /2010/02/07/fun_with_the_upcoming_1.7_release_of_git_rebase_--interactive_--autosquash.html
 
