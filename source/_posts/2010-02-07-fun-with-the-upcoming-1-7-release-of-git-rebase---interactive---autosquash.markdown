@@ -29,16 +29,16 @@ For example:
 
 ``` bash Prepare commits for use with --autosquash
 $ vim Foo.txt
-$ git commit -am "Change all the 'Bar's to 'Foo's"
-[topic 8374d8e] Change all the 'Bar's to 'Foo's
+$ git commit -am 'Change all the "Bar"s to "Foo"s'
+[topic 8374d8e] Change all the "Bar"s to "Foo"s
  1 files changed, 2 insertions(+), 2 deletions(-)
 $ vim Bar.txt
-$ git commit -am "Change all the 'Foo's to 'Bar's"
-[topic 2d12ce8] Change all the 'Foo's to 'Bar's
+$ git commit -am 'Change all the "Foo"s to "Bar"s'
+[topic 2d12ce8] Change all the "Foo"s to "Bar"s
  1 files changed, 1 insertions(+), 1 deletions(-)
 $ vim Foo.txt
-$ git commit -am "squash! Change all the 'Bar's"
-[topic 259a7e6] squash! Change all the 'Bar's
+$ git commit -am 'squash! Change all the "Bar"s'
+[topic 259a7e6] squash! Change all the "Bar"s
  1 files changed, 2 insertions(+), 1 deletions(-)
 ```
 
@@ -46,9 +46,9 @@ If we run `git rebase --interactive --autosquash origin/master` from here, the
 pick-list will look like this:
 
 ``` bash Generated picklist
-pick 8374d8e Change all the 'Bar's to 'Foo's
-squash 259a7e6 squash! Change all the 'Bar's
-pick 2d12ce8 Change all the 'Foo's to 'Bar's
+pick 8374d8e Change all the "Bar"s to "Foo"s
+squash 259a7e6 squash! Change all the "Bar"s
+pick 2d12ce8 Change all the "Foo"s to "Bar"s
 
 # Rebase b6bee12..259a7e6 onto b6bee12
 #
@@ -70,11 +70,11 @@ When you get to the `squash`, you'll have a commit message like:
 # This is a combination of 2 commits.
 # The first commit's message is:
 
-Change all the 'Bar's to 'Foo's
+Change all the "Bar"s to "Foo"s
 
 # This is the 2nd commit message:
 
-squash! Change all the 'Bar's
+squash! Change all the "Bar"s
 
 # Please enter the commit message for your ch anges. Lines starting
 # with '#' will be ignored, and an empty mess age aborts the commit.
@@ -90,9 +90,9 @@ instead of `squash!` as the commit message's prefix, then the pick list would
 have ended up as:
 
 ``` bash Generated picklist
-pick 8374d8e Change all the 'Bar's to 'Foo's
-fixup cfc6e54 fixup! Change all the 'Bar's
-pick 2d12ce8 Change all the 'Foo's to 'Bar's
+pick 8374d8e Change all the "Bar"s to "Foo"s
+fixup cfc6e54 fixup! Change all the "Bar"s
+pick 2d12ce8 Change all the "Foo"s to "Bar"s
 
 # Rebase b6bee12..cfc6e54 onto b6bee12
 #
@@ -114,11 +114,11 @@ With the following in your editor for the combined commit message:
 # This is a combination of 2 commits.
 # The first commit's message is:
 
-Change all the 'Bar's to 'Foo's
+Change all the "Bar"s to "Foo"s
 
 # The 2nd commit message will be skipped:
 
-#	fixup! Change all the 'Bar's
+#	fixup! Change all the "Bar"s
 
 # Please enter the commit message for your changes. Lines starting
 # with '#' will be ignored, and an empty message aborts the commit.
@@ -146,17 +146,17 @@ Here's how they would be used in our previous example:
 
 ``` bash Example using aliases
 $ vim Foo.txt
-$ git commit -am "Change all the 'Bar's to 'Foo's"
-[topic 8374d8e] Change all the 'Bar's to 'Foo's
+$ git commit -am 'Change all the "Bar"s to "Foo"s'
+[topic 8374d8e] Change all the "Bar"s to "Foo"s
  1 files changed, 2 insertions(+), 2 deletions(-)
 $ vim Bar.txt
-$ git commit -am "Change all the 'Foo's to 'Bar's"
-[topic 2d12ce8] Change all the 'Foo's to 'Bar's
+$ git commit -am 'Change all the "Foo"s to "Bar"s'
+[topic 2d12ce8] Change all the "Foo"s to "Bar"s
  1 files changed, 1 insertions(+), 1 deletions(-)
 $ vim Foo.txt
 $ git add Foo.txt
 $ git squash HEAD~2
-[topic 259a7e6] squash! Change all the 'Bar's to 'Foo's
+[topic 259a7e6] squash! Change all the "Bar"s to "Foo"s
  1 files changed, 2 insertions(+), 1 deletions(-)
 $ git ri origin/master
 ```
@@ -165,3 +165,4 @@ Similarly, `git fixup HEAD~2` would create a `fixup!` commit to be used with
 `git rebase --interactive --autosquash` (Aliased as: `git ri`).
 
 *Edit 2010-02-13:* Fix alias examples.
+*Edit 2011-12-11:* Change 'Foo's to "Foo"s to avoid grammar confusion.
