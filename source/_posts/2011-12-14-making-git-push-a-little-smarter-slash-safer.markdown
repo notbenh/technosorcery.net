@@ -3,7 +3,7 @@ layout: post
 title: "Making 'git push' a little smarter/safer"
 date: 2011-12-15T16:41:47-0800
 comments: true
-categories:
+categories: [git]
 ---
 
 Without any additional command line options `git push`'s behavior is
