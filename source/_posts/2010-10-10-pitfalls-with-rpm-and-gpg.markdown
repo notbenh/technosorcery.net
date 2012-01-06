@@ -4,7 +4,7 @@ title: Pitfalls with RPM and GPG
 date: 2010-10-10T00:16:50-07:00
 comments: true
 categories: [GPG, RPM, packaging]
-updated_at: 2011-04-07T09:28:37-07:00
+updated: 2011-04-07T09:28:37-07:00
 ---
 
 As part of automating the packaging process for

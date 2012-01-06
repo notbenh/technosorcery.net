@@ -4,7 +4,7 @@ title: Helper script for creating posts with WWW::StaticBlog
 date: 2010-04-10T13:40:42-07:00
 comments: true
 categories: [www-staticblog, yak shaving]
-updated_at: 2010-04-10T13:43:28-07:00
+updated: 2010-04-10T13:43:28-07:00
 ---
 
 There's always another yak that needs shaving.  Since creating posts with

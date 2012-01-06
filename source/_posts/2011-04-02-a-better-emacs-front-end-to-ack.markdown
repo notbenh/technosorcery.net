@@ -4,7 +4,7 @@ title: A better emacs front-end to ack
 date: 2011-04-02T10:41:10-07:00
 comments: true
 categories: [ack, emacs, lisp]
-updated_at: 2011-04-12T20:51:58-07:00
+updated: 2011-04-12T20:51:58-07:00
 ---
 
 I've been giving emacs a try after having probably the most civilized

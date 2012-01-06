@@ -4,7 +4,7 @@ title: "Capistrano completion in zsh"
 date: 2009-10-06T23:03:00-07:00
 comments: true
 categories: [capistrano, completion, zsh]
-updated_at: 2010-09-29T22:54:24-07:00
+updated: 2010-09-29T22:54:24-07:00
 ---
 
 I've decided to try out zsh for a while, and while I already get

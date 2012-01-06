@@ -3,7 +3,7 @@ layout: post
 title: Offline email with gmail, mutt, postfix and offlineimap
 date: 2010-11-21T23:43:25-08:00
 comments: true
-updated_at: 2010-11-21T23:43:25-08:00
+updated: 2010-11-21T23:43:25-08:00
 ---
 
 One of my co-workers recently asked me to send him my setup for being

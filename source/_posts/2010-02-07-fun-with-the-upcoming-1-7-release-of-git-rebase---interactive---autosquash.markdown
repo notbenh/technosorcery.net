@@ -4,7 +4,7 @@ title: "Fun with the upcoming 1.7 release of Git: rebase --interactive --autosqu
 date: 2010-02-07T17:50:00-08:00
 comments: true
 categories: [development, git, tips]
-updated_at: 2010-02-13T22:37:28-08:00
+updated: 2011-12-11T09:58:18-08:00
 ---
 
 The upcoming Git 1.7 has a _lot_ of really nice improvements, and new features.

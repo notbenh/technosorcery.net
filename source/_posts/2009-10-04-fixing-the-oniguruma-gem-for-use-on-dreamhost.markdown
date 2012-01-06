@@ -4,7 +4,7 @@ title: "Fixing the Oniguruma Gem for use on DreamHost"
 date: 2009-10-04T10:33:00-07:00
 comments: true
 categories: [dreamhost, gems, oniguruma, ruby]
-updated_at: 2010-04-02T21:00:36-07:00
+updated: 2010-04-02T21:00:36-07:00
 ---
 
 While looking at how to get syntax highlighted source back up on here
