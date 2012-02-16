@@ -28,7 +28,7 @@ of the things I help organize:
 I am a habitual learner, and am always seeking better (more
 efficient & elegent) ways to do whatever it is that I am working on
 at the time.  I have also earned a reputation of having very high
-standards for code review, and have repeadedly been told by
+standards for code review, and have repeatedly been told by
 colleagues that they look forward to the code reviews since they
 have always been very constructive.
 
