@@ -14,7 +14,7 @@ updated: 2012-07-05T16:13:32-07:00
 
 This item seems to be near non-existant on the internet, when it comes
 to useful information (such as pinouts, and what's necessary to
-actually capture at 1000 FPS).
+actually capture at 10000 FPS).
 
 We haven't gotten it powered up yet, but that should happen fairly
 soon (bench supply should arrive tomorrow; been meaning to get one for
